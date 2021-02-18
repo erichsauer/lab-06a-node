@@ -1,4 +1,4 @@
-export const plants = [
+const plants = [
     {
         id: 1,
         name: 'Crested Fluffel',
@@ -54,3 +54,7 @@ export const plants = [
         price: 10
     },
 ];
+
+module.exports = {
+    plants
+}
