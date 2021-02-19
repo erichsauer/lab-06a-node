@@ -7,15 +7,19 @@ const { plants } = require('./data.js')
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.send(`Welcome to the API`)
+    res.json(`Welcome to the API`)
 })
 
-app.get('/data', (req, res) => {
-    res.send({ plants })
+app.get('/plants', (req, res) => {
+    res.json({ results: plants })
 })
 
-app.get('/data/:id', (req, res) => {
-    res.send(`Individual plant`)
+app.get('/plants/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const selectedPlant = plants.find((plant) => {
+        return plant.id === id
+    });
+    res.json({ results: selectedPlant });
 })
 
 module.exports = {
